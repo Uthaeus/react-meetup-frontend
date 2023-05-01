@@ -1,16 +1,39 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
 function MeetupForm() {
+  const [image, setImage] = useState(null); 
+  const [thumbnail, setThumbnail] = useState(null); 
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+
+  const handleImageChange = (event) => {
+    setImage(event.target.files[0]);
+  };
+
+  const handleThumbnailChange = (event) => {
+    setThumbnail(event.target.files[0]);
+  };
+
+  function buildForm(data) {
+    const formData = new FormData();
+    formData.append("meetup[title]", data.title);
+    formData.append("meetup[location]", data.location);
+    formData.append("meetup[time]", data.time);
+    formData.append("meetup[date]", data.date);
+    formData.append("meetup[description]", data.description);
+    formData.append("meetup[image]", data.image[0]);
+    formData.append("meetup[thumbnail]", data.thumbnail[0]);
+
+    return formData;
+  }
 
   const onSubmit = (data) => {
     console.log(data);
     fetch("http://localhost:3000/meetups", {
       method: "POST",
-        headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(data),
+      body: buildForm(data),
     })
       .then((response) => {
         if (response.ok) {
@@ -23,7 +46,7 @@ function MeetupForm() {
 
   return (
     <div className="form-container">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <div className="form-control">
           <input type="text" placeholder="Title" {...register("title")} />
         </div>
@@ -36,9 +59,12 @@ function MeetupForm() {
         <div className="form-control">
           <input type="date" placeholder="Date" {...register("date")} />
         </div>
-        {/* <div className="form-control">
+        <div className="form-control">
           <input type="file" {...register("image")} />
-        </div> */}
+        </div>
+        <div className="form-control">
+          <input type="file" {...register("thumbnail")} />
+        </div>
         <div className="form-control">
           <textarea placeholder="Description" {...register("description")} />
         </div>
