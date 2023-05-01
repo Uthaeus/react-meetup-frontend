@@ -1,20 +1,10 @@
-import { useState } from "react";
+
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
 function MeetupForm() {
-  const [image, setImage] = useState(null); 
-  const [thumbnail, setThumbnail] = useState(null); 
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-
-  const handleImageChange = (event) => {
-    setImage(event.target.files[0]);
-  };
-
-  const handleThumbnailChange = (event) => {
-    setThumbnail(event.target.files[0]);
-  };
 
   function buildForm(data) {
     const formData = new FormData();
