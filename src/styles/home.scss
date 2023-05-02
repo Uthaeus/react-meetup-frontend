@@ -1,0 +1,56 @@
+
+.home-container {
+    width: 80%;
+    min-height: calc(100vh - 80px);
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: #ffffff10;
+
+    .welcome-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .welcome-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #fff;
+        }
+
+        .welcome-btn {
+            width: 20%;
+            padding: 4px 20px;
+            border-radius: 4px;
+            border: none;
+            background-color: rgb(34, 76, 109);
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.2);
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .home-meetups-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+        border-left: 1px solid #ffffff37;
+
+        .home-meetups-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ffffff37;
+        }
+    }
+}
