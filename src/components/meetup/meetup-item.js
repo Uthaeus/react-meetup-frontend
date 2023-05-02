@@ -14,7 +14,7 @@ function MeetupItem({ meetup }) {
             <address>{meetup.location}</address>
             <p>{meetup.date}</p>
             <p>{meetup.time}</p>
-            {meetup.thumbnail.url ? <img src={`http://localhost:3000${meetup.thumbnail.url}`} alt={meetup.title} /> : <ImagePlaceholder type='thumbnail' />}
+            {meetup.thumbnail?.url ? <img src={`http://localhost:3000${meetup.thumbnail.url}`} alt={meetup.title} /> : <ImagePlaceholder type='thumbnail' />}
         </div>
     );
 }

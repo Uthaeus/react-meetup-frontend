@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 
 import Button from "../ui/Button";
+import ImagePlaceholder from "../ui/ImagePlaceholer";
 
 function MeetupDetail() {
   const [meetup, setMeetup] = useState({});
@@ -42,8 +43,7 @@ function MeetupDetail() {
       <p>{meetup.date}</p>
       <p>{meetup.time}</p>
       <p>{meetup.description}</p>
-      <img src={`http://localhost:3000${image}`} alt={meetup.title} />
-      <img src={`http://localhost:3000${thumbnail}`} alt={meetup.title} />
+      {meetup.image?.url ? <img src={`http://localhost:3000${image}`} alt={meetup.title} /> : <ImagePlaceholder type='image' />}
       <Button
         styles="btn btn-success"
         onClick={() => navigate(`/meetups/${meetupId}/edit`)}
