@@ -1,10 +1,27 @@
-
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
-function MeetupForm() {
-  const { register, handleSubmit } = useForm();
+function MeetupForm({meetup}) {
+  const { register, handleSubmit, reset } = useForm({});
+  const [apiAction, setApiAction] = useState("POST");
+  const [apiUrl, setApiUrl] = useState("http://localhost:3000/meetups");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (meetup) {
+      reset({
+        title: meetup.title,
+        location: meetup.location,
+        time: meetup.time,
+        date: meetup.date,
+        description: meetup.description,
+      });
+      setApiAction("PATCH");
+      setApiUrl(`http://localhost:3000/meetups/${meetup.id}`);
+      console.log('meetup', meetup);
+    }
+  }, [meetup, reset]);
 
   function buildForm(data) {
     const formData = new FormData();
@@ -21,8 +38,8 @@ function MeetupForm() {
 
   const onSubmit = (data) => {
     console.log(data);
-    fetch("http://localhost:3000/meetups", {
-      method: "POST",
+    fetch(apiUrl, {
+      method: apiAction,
       body: buildForm(data),
     })
       .then((response) => {
