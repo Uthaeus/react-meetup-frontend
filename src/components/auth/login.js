@@ -6,11 +6,17 @@ function Login() {
     const navigate = useNavigate();
 
     const submitHandler = data => {
+        console.log(data);
+
         fetch('http://localhost:3000/users/sign_in', {
             method: 'POST',
-            body: JSON.stringify(data),
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
         })
         .then(response => {
+            console.log('response', response);
             if (response.ok) {
                 console.log('response ok', response);
                 navigate('/meetups');
@@ -22,6 +28,9 @@ function Login() {
             console.log('error login', error);
         });
     }
+    
+
+
 
     return (
         <div className="auth-container">

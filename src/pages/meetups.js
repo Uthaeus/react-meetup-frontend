@@ -7,7 +7,7 @@ function Meetups() {
   const [meetups, setMeetups] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/meetups")
+    fetch("http://localhost:4000/meetups")
       .then((response) => response.json())
       .then((data) => setMeetups(data))
       .catch((error) => console.log('meetups', error));

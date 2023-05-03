@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 function MeetupForm({meetup}) {
   const { register, handleSubmit, reset } = useForm({});
   const [apiAction, setApiAction] = useState("POST");
-  const [apiUrl, setApiUrl] = useState("http://localhost:3000/meetups");
+  const [apiUrl, setApiUrl] = useState("http://localhost:4000/meetups");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function MeetupForm({meetup}) {
         description: meetup.description,
       });
       setApiAction("PATCH");
-      setApiUrl(`http://localhost:3000/meetups/${meetup.id}`);
+      setApiUrl(`http://localhost:4000/meetups/${meetup.id}`);
       console.log('meetup', meetup);
     }
   }, [meetup, reset]);

@@ -24,7 +24,7 @@ function MeetupDetail() {
   }, [meetupId]);
 
   function deleteHandler() {
-    fetch(`http://localhost:3000/meetups/${meetupId}`, {
+    fetch(`http://localhost:4000/meetups/${meetupId}`, {
       method: "DELETE",
     })
       .then((response) => {

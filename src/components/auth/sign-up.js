@@ -7,14 +7,29 @@ function SignUp() {
 
     const submitHandler = data => {
         console.log(data);
+        if (data.password !== data.password_confirmation) {
+            console.log('passwords do not match');
+            return;
+        }
 
-        fetch('http://localhost:3000/users', {
+        let dataToSend = {
+            user: {
+                username: data.username,
+                email: data.email,
+                password: data.password,
+                password_confirmation: data.password_confirmation
+            }
+        };
+
+        fetch('http://localhost:4000/signup', {
             method: 'POST',
-            body: JSON.stringify(data),
+            body: JSON.stringify(dataToSend),
+            headers: {
+                'Content-type': 'application/json',
+            }
         })
         .then(response => {
             if (response.ok) {
-                console.log('response ok', response);
                 navigate('/meetups');
                 return response.json();
             }

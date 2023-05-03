@@ -7,7 +7,7 @@ function EditMeetup() {
     const { meetupId } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:3000/meetups/${meetupId}`)
+        fetch(`http://localhost:4000/meetups/${meetupId}`)
             .then((response) => {
                 return response.json()
             })
