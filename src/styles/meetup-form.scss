@@ -1,0 +1,25 @@
+
+.form-container {
+    width: 60%;
+    margin: 4rem auto;
+    padding: 1rem;
+    border-radius: 4px;
+    color: #161616;
+    background-color: #ffffffe0;
+
+    .form-btn {
+        width: 25%;
+        padding: 3px 12px;
+        background-color: $blue-green;
+        color: #fff;
+        border-radius: 3px;
+        box-shadow: 2px 2px 4px #00000080;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            background-color: darken($blue-green, 10%);
+            transform: scale(1.1);
+        }
+    }
+}

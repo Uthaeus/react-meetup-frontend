@@ -1,0 +1,58 @@
+
+.meetup-detail-container {
+    width: 60%;
+    min-height: calc(100vh - 80px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .detail-image-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid #cccccc30;
+    }
+
+    .detail-content-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 2rem;
+
+        .detail-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .detail-description-container {
+            width: 94%;
+            min-height: 200px;
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: #cccccc10;
+            border-radius: 5px;
+            box-shadow: 3px 3px 5px #cccccc30;
+        }
+
+        .detail-item {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            margin-left: 3rem;
+            padding: 1rem;
+            border-bottom: 1px solid #cccccc30;
+        }
+    }
+
+    .detail-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+        position: absolute;
+        bottom: 0;
+    }
+}

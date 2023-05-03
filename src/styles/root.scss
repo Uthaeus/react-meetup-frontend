@@ -1,7 +1,10 @@
 @import 'home';
 @import 'meetups';
+@import 'meetup-detail';
+@import 'new-meetup';
+@import 'meetup-form';
 
 body {
-    background-color: #121212;
+    background-color: #161616;
     color: #fff;
 }

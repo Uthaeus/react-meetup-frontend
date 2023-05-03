@@ -37,25 +37,50 @@ function MeetupDetail() {
   }
 
   return (
-    <div>
-      <h1>{meetup.title}</h1>
-      <address>{meetup.location}</address>
-      <p>{meetup.date}</p>
-      <p>{meetup.time}</p>
-      <p>{meetup.description}</p>
-      {meetup.image?.url ? <img src={`http://localhost:3000${image}`} alt={meetup.title} /> : <ImagePlaceholder type='image' />}
-      <Button
-        styles="btn btn-success"
-        onClick={() => navigate(`/meetups/${meetupId}/edit`)}
-      >
-        Edit
-      </Button>
-      <Button styles="btn btn-danger" onClick={deleteHandler}>
-        Delete
-      </Button>
-      <Button styles="btn btn-primary" onClick={() => navigate("/meetups")}>
-        Back to Meetups
-      </Button>
+    <div className="meetup-detail-container">
+      <div className="detail-image-container">
+        {meetup.image?.url ? (
+          <img 
+            src={`http://localhost:3000${image}`} 
+            alt={meetup.title} 
+            width="100%"
+          />
+        ) : (
+          <ImagePlaceholder type="image" />
+        )}
+      </div>
+
+      <div className="detail-content-container">
+        <div className="detail-content-left">
+          <h1 className="detail-title">{meetup.title}</h1>
+          <div className="detail-description-container">
+            <p>{meetup.description}</p>
+          </div>
+        </div>
+        <div className="detail-content-right">
+          <address className="detail-item">{meetup.location}</address>
+          <p className="detail-item">{meetup.date}</p>
+          <p className="detail-item">{meetup.time}</p>
+        </div>
+      </div>
+
+      <div className="detail-actions">
+        <Button
+          styles="btn btn-success"
+          onClick={() => navigate(`/meetups/${meetupId}/edit`)}
+        >
+          Edit
+        </Button>
+        <Button styles="btn btn-danger ms-4" onClick={deleteHandler}>
+          Delete
+        </Button>
+        <Button
+          styles="btn btn-primary ms-4"
+          onClick={() => navigate("/meetups")}
+        >
+          Back to Meetups
+        </Button>
+      </div>
     </div>
   );
 }

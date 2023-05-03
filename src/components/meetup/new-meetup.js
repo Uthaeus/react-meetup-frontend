@@ -4,10 +4,10 @@ import MeetupForm from "./meetup-form";
 function NewMeetup() {
 
     return (
-        <>
-            <h1>New Meetup</h1>
+        <div className="new-meetup-container">
+            <h1 className="new-meetup-title">New Meetup</h1>
             <MeetupForm />
-        </>
+        </div>
     );
 }
 

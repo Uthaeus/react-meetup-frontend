@@ -1,0 +1,13 @@
+
+.new-meetup-container {
+    width: 80%;
+    min-height: calc(100vh - 80px);
+    margin: 20px auto;
+
+    .new-meetup-title {
+        font-size: 2.4em;
+        font-weight: 700;
+        color: $blue-green;
+        border-bottom: 2px solid $purple;
+    }
+}

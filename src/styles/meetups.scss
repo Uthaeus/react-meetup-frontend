@@ -15,20 +15,20 @@
         .meetups-header-title {
             font-size: 2rem;
             font-weight: 600;
-            color: #044668;
-            border-bottom: 1px solid #044668;
+            color: $blue;
+            border-bottom: 1px solid $blue-green;
             padding: 10px;
         }
 
         .meetups-header-link {
-            color: #044668;
+            color: $blue;
             text-decoration: none;
             font-size: 1.1rem;
             transition: all 0.2s ease-in-out;
 
             &:hover {
                 cursor: pointer;
-                color: #087bb5;
+                color: $purple;
                 transform: scale(1.05);
             }
         }

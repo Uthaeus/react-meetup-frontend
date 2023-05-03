@@ -54,31 +54,33 @@ function MeetupForm({meetup}) {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-        <div className="form-control">
-          <input type="text" placeholder="Title" {...register("title")} />
+        <div className="form-group mb-2">
+          <input className="form-control" type="text" placeholder="Title" {...register("title")} />
         </div>
-        <div className="form-control">
-          <input type="text" placeholder="Location" {...register("location")} />
+        <div className="form-group mb-2">
+          <input className="form-control" type="text" placeholder="Location" {...register("location")} />
         </div>
-        <div className="form-control">
-          <input type="time" placeholder="Time" {...register("time")} />
+        <div className="form-group mb-2">
+          <input className="form-control" type="time" placeholder="Time" {...register("time")} />
         </div>
-        <div className="form-control">
-          <input type="date" placeholder="Date" {...register("date")} />
+        <div className="form-group mb-2">
+          <input className="form-control" type="date" placeholder="Date" {...register("date")} />
         </div>
-        <div className="form-control">
-          <input type="file" {...register("image")} />
+        <div className="form-group mb-2">
+          <input className="form-control" type="file" {...register("image")} />
         </div>
-        <div className="form-control">
-          <input type="file" {...register("thumbnail")} />
+        <div className="form-group mb-2">
+          <input className="form-control" type="file" {...register("thumbnail")} />
         </div>
-        <div className="form-control">
-          <textarea placeholder="Description" {...register("description")} />
+        <div className="form-group mb-2">
+          <textarea className="form-control" rows={9} placeholder="Description" {...register("description")} />
         </div>
 
-        <button className="btn" type="submit">
-          Submit
-        </button>
+        <div className="form-group">
+          <button className="form-btn" type="submit">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

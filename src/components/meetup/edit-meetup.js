@@ -18,10 +18,10 @@ function EditMeetup() {
     }, [meetupId]);
 
     return (
-        <>
-            <h1>Edit Meetup</h1>
+        <div className="new-meetup-container">
+            <h1 className="new-meetup-title">Edit Meetup</h1>
             <MeetupForm meetup={meetup} />
-        </>
+        </div>
     );
 }
 
