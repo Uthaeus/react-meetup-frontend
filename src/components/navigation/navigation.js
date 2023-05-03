@@ -24,6 +24,22 @@ function Navigation() {
         >
           Meetups
         </NavLink>
+        <NavLink
+          to="/sign-up"
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
+        >
+          Sign Up
+        </NavLink>
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
+        >
+          Login
+        </NavLink>
       </div>
     </div>
   );

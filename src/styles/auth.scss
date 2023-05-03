@@ -1,0 +1,13 @@
+
+.auth-container {
+    width: 60%;
+    margin: 0 auto;
+
+    .auth-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: $blue-green;
+        border-bottom: 2px solid $purple;
+    }
+}
