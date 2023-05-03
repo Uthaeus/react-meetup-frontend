@@ -29,7 +29,7 @@ function Login() {
 
             <form className="auth-form" onSubmit={handleSubmit(submitHandler)}>
                 <div className="form-group">
-                    <label htmlFor="username">Email</label>
+                    <label htmlFor="username">Username</label>
                     <input type="text" className="form-control" id="username" {...register("username", { required: true })} />
                     {errors.username && <span className="text-danger">This field is required</span>}
                 </div>
