@@ -1,6 +1,29 @@
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 function Navigation() {
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    fetch("http://localhost:4000/logout", {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("response ok", response);
+          navigate("/");
+          return response.json();
+        }
+        throw response;
+      })
+      .catch((error) => {
+        console.log("error login", error);
+      });
+  };
+
   return (
     <div className="nav-container">
       <div className="nav-title-wrapper">
@@ -40,6 +63,7 @@ function Navigation() {
         >
           Login
         </NavLink>
+        <div className="nav-link" onClick={logoutHandler}>Logout</div>
       </div>
     </div>
   );

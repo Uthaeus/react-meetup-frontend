@@ -8,18 +8,24 @@ function Login() {
     const submitHandler = data => {
         console.log(data);
 
-        fetch('http://localhost:3000/users/sign_in', {
+        let dataToSend = {
+            user: {
+                username: data.username,
+                password: data.password
+            }
+        };
+
+        fetch('http://localhost:4000/login', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(dataToSend)
         })
         .then(response => {
-            console.log('response', response);
             if (response.ok) {
                 console.log('response ok', response);
-                navigate('/meetups');
+                navigate('/');
                 return response.json();
             }
             throw response
